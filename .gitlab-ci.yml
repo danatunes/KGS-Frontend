@@ -1,7 +1,9 @@
 stages:
   - deploy
 deploy:
-  image: alpine:latest
+  image: 
+    name: nurkend/alpine_cert_with_ssh_client_x86
+    entrypoint: [""]
   stage: deploy
   tags:
     - deployment
