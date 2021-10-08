@@ -1,0 +1,10 @@
+.grid-user{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.grid-user-labels{
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,32 @@
+.bottom-panel--wrapper__component{
+    width: 35%;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin: 0;
+}
+
+.component__buttons{
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px dashed  #9B9B9B;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.component__buttons button {
+    margin-left: 5px;
+    height: 36px;
+    font-size: 13px;
+    width: 126px;
+    color: white;
+}
+
+.component__buttons svg{
+    margin-left: 5px;
+    width: 22px;
+    height: 22px;
+}

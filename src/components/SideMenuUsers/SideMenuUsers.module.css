@@ -1,0 +1,15 @@
+.wrapperForGrid{
+    height: 70%;
+}
+
+.bottomMenu .bottomMenuLabel hr{
+    width: 30px;
+}
+
+.bottomMenuBtnsForDownload{
+    margin: 10px;
+}
+
+.bottomMenuBtnsForDownload svg{
+    margin-left: 10px;
+}

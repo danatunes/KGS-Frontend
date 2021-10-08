@@ -1,0 +1,25 @@
+
+.gridPhoto {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 15px;
+    font-size: 14px;
+}
+
+
+.gridPhoto button {
+    font-size: 12px;
+}
+
+.notification-toggle button {
+    margin-right: 15px;
+}
+
+.dropdown {
+    width: 100%;
+    min-height: 0;
+    max-height: 200px;
+    overflow: hidden;
+    overflow-y: scroll;
+}

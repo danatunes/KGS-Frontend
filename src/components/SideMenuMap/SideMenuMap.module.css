@@ -1,0 +1,19 @@
+.wrapperForGrid{
+    height: 55%;
+}
+
+.bottomMenu{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.bottomMenu .bottomMenuLabel{
+    color: #5F5F5F;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+

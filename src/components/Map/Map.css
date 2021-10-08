@@ -1,0 +1,36 @@
+.dashed-box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+
+}
+
+.dashed-box--searchBarPanelLayer {
+    position: absolute;
+    z-index: 3;
+    background: none;
+    width: 80%;
+    left: 10%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashed-box--panels{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.leaflet-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    background: lightgreen;
+}

@@ -1,0 +1,22 @@
+
+.bottom-panel--wrapper{
+    position: absolute;
+    z-index: 3;
+    width: 750px;
+    height: 100px;
+    bottom: 16px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    color: #545454;
+
+    border-radius: 10px;
+    background: #FFFFFF;
+}
+
+#bottom-panel-wrapper__button{
+    margin-left: 5px;
+    margin-top: 3%;
+}
