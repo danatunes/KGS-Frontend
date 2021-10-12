@@ -1,8 +1,10 @@
 FROM node:16-alpine3.11 as build
 WORKDIR /app
 COPY . .
-COPY sts.crt /usr/local/share/ca-certificates/
-RUN update-ca-certificates
+COPY sts.crt /usr/local/share/ca-certificates/sts.crt
+RUN cat /usr/local/share/ca-certificates/sts.crt >> /etc/ssl/certs/ca-certificates.crt && \
+    apk --no-cache add \
+        curl
 RUN yarn
 RUN yarn build
 # production environment
