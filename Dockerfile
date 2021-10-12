@@ -1,4 +1,5 @@
 FROM node:16 as build
+ENV NODE_EXTRA_CA_CERTS=/usr/local/share/ca-certificates/sts.crt
 WORKDIR /app
 COPY . .
 COPY sts.crt /usr/local/share/ca-certificates/sts.crt
