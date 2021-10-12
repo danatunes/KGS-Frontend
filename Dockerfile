@@ -2,7 +2,7 @@ FROM node:16 as build
 WORKDIR /app
 COPY . .
 COPY sts.crt /usr/local/share/ca-certificates/sts.crt
-RUN update-ca-certicates
+RUN update-ca-certificates
 RUN npm config set cafile /usr/local/share/ca-certificates/sts.crt
 RUN npm i
 RUN npm run build
