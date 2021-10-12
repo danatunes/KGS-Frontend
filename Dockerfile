@@ -2,9 +2,9 @@ FROM node:16-alpine3.11 as build
 WORKDIR /app
 COPY . .
 COPY sts.crt /usr/local/share/ca-certificates/sts.crt
-RUN yarn config set cafile /usr/local/share/ca-certificates/sts.crt
-RUN yarn
-RUN yarn build
+RUN npm config set cafile /usr/local/share/ca-certificates/sts.crt
+RUN npm i
+RUN npm run build
 # production environment
 FROM nginx:stable-alpine
 COPY --from=build /app/build /usr/share/nginx/html
