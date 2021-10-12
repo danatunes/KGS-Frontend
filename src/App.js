@@ -6,7 +6,6 @@ import Login from "./components/login/Login";
 
 import './App.css';
 import UserInfo from "./components/UsersGrid/UserInfo";
-import SearchBar from "./components/SearchBar/SearchBar";
 
 
 function App() {
