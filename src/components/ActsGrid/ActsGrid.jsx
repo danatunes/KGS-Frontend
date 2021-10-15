@@ -6,7 +6,11 @@ const ActsGrid = ({data}) => {
     return (
         <div>
             <div className={'gridPhoto'}>
-                <input type="checkbox" checked={data.checked}/>
+                <input type="checkbox"
+                       checked={data.checked}
+                       onChange={() => {
+                           console.log('tap')
+                       }}/>
 
                 <div className={'grid-photo-labels'}>
                     <label>

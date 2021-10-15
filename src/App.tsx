@@ -1,25 +1,46 @@
 import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
+import {FC, useContext, useEffect} from "react";
+import {Context} from "./index";
+import {observer} from "mobx-react-lite"
 
 import Map from "./components/Map/Map";
 import SideMenu from "./components/SideMenu/SideMenu";
-import Login from "./components/login/Login";
-
-import './App.css';
+import Login from "./components/Login/Login";
 import UserInfo from "./components/UsersGrid/UserInfo";
 
+import './App.css';
 
-function App() {
+
+const App: FC = () => {
+
+    const {store} = useContext(Context);
+
+    useEffect(() => {
+        console.log(localStorage.getItem('token'))
+        if (localStorage.getItem('token')) {
+            store.checkAuth()
+        }
+    }, [])
+
+    if (store.isLoading){
+        return (<h2>ЗАГРУЗКА...</h2>);
+    }
+
+    if (!store.isAuth) {
+
+        console.log(store)
+
+        return (
+            <Login/>
+        )
+    }
+
     return (
         <Router>
+            <div className="App">
+
             <Switch>
-
-                <Route exact path={'/login'}>
-                    <Login/>
-                </Route>
-
                 <Route path={'/'}>
-                    <div className="App">
-
                         <div className={'sidebar'}>
                             <SideMenu/>
                         </div>
@@ -32,12 +53,11 @@ function App() {
                                 <Map/>
                             </Switch>
                         </div>
-
-                    </div>
                 </Route>
             </Switch>
+            </div>
         </Router>
     );
 }
 
-export default App;
+export default observer(App);

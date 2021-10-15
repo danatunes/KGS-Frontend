@@ -1,16 +1,26 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import logo from "../../assets/logo/logo.png";
+import {Context} from "../../index";
+import {observer} from "mobx-react-lite";
+
+import styles from './UserDataInSideMenu.module.css'
 
 const UserDataInSideMenu = () => {
-    return (
-        <div className={'top-section'}>
 
-            <div className={'logo'}>
-                <img src={logo} alt="KGS logo"/>
+    const {store} = useContext(Context);
+
+    console.log(store.user.id)
+
+
+    return (
+        <div className={styles.topSection}>
+
+            <div className={styles.logo}>
+                <img src={store.user.photoUrl ? store.user.photoUrl : logo} alt="KGS logo"/>
             </div>
 
-            <div className={'menu-username'}>
-                <h6> Военный Абаронович
+            <div className={styles.menuUsername}>
+                <h6> {store.user.first_name}  {store.user.last_name}
                 </h6>
             </div>
 
@@ -18,4 +28,4 @@ const UserDataInSideMenu = () => {
     );
 };
 
-export default UserDataInSideMenu;
+export default observer(UserDataInSideMenu);

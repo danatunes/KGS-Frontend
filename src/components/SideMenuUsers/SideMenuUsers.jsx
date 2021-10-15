@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import UserGrid from "../UsersGrid/UserGrid";
 
 import styles from './SideMenuUsers.module.css'
+import {Context} from "../../index";
 
 const SideMenuUsers = () => {
 
@@ -46,6 +47,8 @@ const SideMenuUsers = () => {
         }
     ]
 
+    const {store} = useContext(Context);
+
 
     return (
         <React.Fragment>
@@ -79,9 +82,8 @@ const SideMenuUsers = () => {
                                 <button className="btn btn-primary" type="button">Добавить пользователя</button>
                             </div>
                         </div>
-                        <div className={styles.bottomMenu}>
-                            <div className={`exit justify-content-md-center`}>
-                                <button>
+                        <button className={'exit'} onClick={()=>store.logout()}>
+                            <div className={` justify-content-md-center`}>
                                     <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -89,9 +91,8 @@ const SideMenuUsers = () => {
                                             fill="black"/>
                                     </svg>
                                     Выйти
-                                </button>
                             </div>
-                        </div>
+                        </button>
                     </div>
 
         </React.Fragment>

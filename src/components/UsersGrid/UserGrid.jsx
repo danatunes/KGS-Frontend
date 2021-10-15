@@ -6,7 +6,8 @@ const UserGrid = ({data}) => {
     return (
         <div>
             <div className={'grid-user'}>
-                <input type="checkbox" checked/>
+                <input type="checkbox" checked onChange={()=>{
+                    console.log('tap')}}/>
 
                 <div className={'grid-user-labels'}>
                     <label>

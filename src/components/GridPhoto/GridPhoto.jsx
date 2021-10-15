@@ -12,7 +12,8 @@ const GridPhoto = ({photoData}) => {
             <div className={'gridPhoto'}>
                 <div>
                     <label>
-                        <input type="checkbox" checked={photoData.checked}/>
+                        <input type="checkbox" checked={photoData.checked} onChange={()=>{
+                            console.log('tap')}}/>
                         {photoData.date}
                     </label>
                 </div>

@@ -25,6 +25,7 @@ const Map = () => {
             </div>
             <BottomBodyPanelWithButton/>
             </div>
+            {/*<div className={'versionLabel'}><h1>V1</h1></div>*/}
         </div>
     );
 };

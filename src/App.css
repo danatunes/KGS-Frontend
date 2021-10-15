@@ -26,6 +26,9 @@ li {
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    position: relative;
+    z-index: 1;
 }
 
 .sidebar {
@@ -33,3 +36,4 @@ li {
     height: 100vh;
     background: #FCFCFC;
 }
+
