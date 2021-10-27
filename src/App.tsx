@@ -3,12 +3,12 @@ import {FC, useContext, useEffect} from "react";
 import {Context} from "./index";
 import {observer} from "mobx-react-lite"
 
-import Map from "./components/Map/Map";
 import SideMenu from "./components/SideMenu/SideMenu";
 import Login from "./components/Login/Login";
 import UserInfo from "./components/UsersGrid/UserInfo";
 
 import './App.css';
+import Map from "./components/Map/Map";
 
 
 const App: FC = () => {
@@ -22,7 +22,7 @@ const App: FC = () => {
         }
     }, [])
 
-    if (store.isLoading){
+    if (store.isLoading) {
         return (<h2>ЗАГРУЗКА...</h2>);
     }
 
@@ -39,8 +39,8 @@ const App: FC = () => {
         <Router>
             <div className="App">
 
-            <Switch>
-                <Route path={'/'}>
+                <Switch>
+                    <Route path={'/'}>
                         <div className={'sidebar'}>
                             <SideMenu/>
                         </div>
@@ -53,8 +53,8 @@ const App: FC = () => {
                                 <Map/>
                             </Switch>
                         </div>
-                </Route>
-            </Switch>
+                    </Route>
+                </Switch>
             </div>
         </Router>
     );

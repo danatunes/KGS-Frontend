@@ -1,4 +1,4 @@
-.wrapper{
+.wrapper {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -7,12 +7,12 @@
     height: 100%;
 }
 
-.photo-half{
+.photo-half {
     width: 50%;
     height: 100%;
 }
 
-.login-half{
+.login-half {
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -21,7 +21,28 @@
     height: 100vh;
 }
 
-.login-half--form{
+.version_control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 0.8;
+    font-size: 13px;
+    background-color: #e8e8e8;
+    width: 150px;
+}
+
+.version_control label {
+    padding: 0 5px;
+}
+
+.version_control:hover {
+    opacity: 1;
+}
+
+.login-half--form {
     display: flex;
     flex-direction: column;
     height: 75%;
@@ -30,13 +51,13 @@
     align-items: center;
 }
 
-.login-half-form--inputs{
+.login-half-form--inputs {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.login-half-form--logo{
+.login-half-form--logo {
     font-size: 20px;
     color: #000000;
     height: 150px;
@@ -45,6 +66,7 @@
     justify-content: space-between;
     align-items: center;
 }
+
 /*body {*/
 /*    color: #000;*/
 /*    overflow-x: hidden;*/

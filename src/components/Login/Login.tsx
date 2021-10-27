@@ -53,6 +53,7 @@ const Login: FC = () => {
                         Войти
                     </button>
                 </div>
+                <div className={'version_control'}><label>version : v1</label></div>
             </div>
         </div>
     );

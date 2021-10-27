@@ -1,0 +1,42 @@
+.wrapperModal {
+    position: fixed;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+}
+
+.modal {
+    display: flex !important;
+    flex-direction: column;
+    border-radius: 25px;
+}
+
+.modal {
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+}
+
+.modal img {
+    align-items: end;
+    width: 30px;
+    height: 30px;
+    margin-bottom: 25px;
+    margin-left: 125px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .7);
+    z-index: 1000;
+}
+
+.modalButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}

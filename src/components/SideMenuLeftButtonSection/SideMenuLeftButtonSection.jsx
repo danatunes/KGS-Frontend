@@ -40,7 +40,7 @@ const SideMenuLeftButtonSection = () => {
                 </div>
             </Link>
 
-            <Link to="/map" id={'map'}>
+            <Link to="/map">
 
                 <div
                     onClick={() => {

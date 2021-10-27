@@ -3,6 +3,7 @@
     height: 100%;
     position: relative;
     z-index: 1;
+
 }
 
 .dashed-box--searchBarPanelLayer {
@@ -34,10 +35,7 @@
     background: lightgreen;
 }
 
-/*.versionLabel{*/
-/*    z-index: 3;*/
-/*    width: 10px;*/
-/*    height: 60px;*/
-/*    bottom: 10px;*/
-/*    background: none;*/
-/*}*/
+#map{
+    height: 100vh;
+    width: 100vw;
+}

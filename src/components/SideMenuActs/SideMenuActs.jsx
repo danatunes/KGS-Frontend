@@ -1,8 +1,7 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import ActsGrid from "../ActsGrid/ActsGrid";
 import styles from './SideMenuActs.module.css'
 import {Context} from "../../index";
-import Login from "../Login/Login";
 
 const SideMenuActs = () => {
     const arrDataActs = [
@@ -42,19 +41,10 @@ const SideMenuActs = () => {
             id: 9,
             date: '30-20-20',
             numberOfShots: 123
-        },
+        }
     ];
 
     const {store} = useContext(Context);
-
-    if (!store.isAuth) {
-
-        console.log(store)
-
-        return (
-            <Login/>
-        )
-    }
 
     return (
         <React.Fragment>
@@ -81,11 +71,9 @@ const SideMenuActs = () => {
             </div>
             <div className="divider"></div>
             <div className={styles.wrapperForGrid}>
-                <div className={'gridPhotos'}>
-                    {arrDataActs.map((act) =>
-                        <ActsGrid key={act.id} data={act}/>)
-                    }
-                </div>
+                <>
+                    <ActsGrid arrDataActs={arrDataActs}/>
+                </>
 
                 <button className={'exit'} onClick={() => store.logout()}>
                     <div className={`justify-content-md-center`}>
