@@ -34,7 +34,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "echo SOME BODY likes"
+      "pre-commit": "prettier --write . && git add -A ."
     }
   },
   "eslintConfig": {
