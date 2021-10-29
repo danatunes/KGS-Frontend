@@ -1,57 +1,49 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect, useRef, useState} from 'react';
 import ActsGrid from "../ActsGrid/ActsGrid";
 import styles from './SideMenuActs.module.css'
 import {Context} from "../../index";
 
 const SideMenuActs = () => {
-    const arrDataActs = [
-        {
-            id: 1,
-            date: '30-20-20',
-            numberOfShots: 123
-        }, {
-            id: 2,
-            date: '30-20-20',
-            numberOfShots: 123
-        }, {
-            id: 3,
-            date: '30-20-20',
-            numberOfShots: 123
-        }, {
-            id: 4,
-            date: '30-20-20',
-            numberOfShots: 123
-        }, {
-            id: 5,
-            date: '30-20-20',
-            numberOfShots: 123
-        }, {
-            id: 6,
-            date: '30-20-20',
-            numberOfShots: 123
-        }, {
-            id: 7,
-            date: '30-20-20',
-            numberOfShots: 123
-        }, {
-            id: 8,
-            date: '30-20-20',
-            numberOfShots: 123
-        }, {
-            id: 9,
-            date: '30-20-20',
-            numberOfShots: 123
-        }
-    ];
 
     const {store} = useContext(Context);
+
+
+    const prevScrollY = useRef(0);
+    const [fetching, setFetching] = useState(true)
+    const [skip, setSkip] = useState(10);
+
+
+    useEffect(() => {
+        if (fetching) {
+            store.getAllActs(skip);
+            setSkip(prevState => prevState + 10);
+            setFetching(false);
+        }
+
+    }, [fetching])
+
+    const onScroll = (e) => {
+        const currentScrollY = e.target.scrollTop;
+        if (window.outerHeight - (e.target.scrollHeight + currentScrollY) < 100) {
+            if (prevScrollY.current < currentScrollY) {
+                setFetching(true);
+            }
+        }
+        prevScrollY.current = currentScrollY;
+    };
+
 
     return (
         <React.Fragment>
             <div className="divider"></div>
             <div className="generate-act">
                 <div className="d-grid gap-2">
-                    <button className="btn btn-primary" type="button">Сгенерировать акт</button>
+                    <button
+                        className="btn btn-primary"
+                        type="button"
+                    >
+                        Сгенерировать акт
+                    </button>
                 </div>
             </div>
             <div className={'gridPhoto'}>
@@ -72,7 +64,7 @@ const SideMenuActs = () => {
             <div className="divider"></div>
             <div className={styles.wrapperForGrid}>
                 <>
-                    <ActsGrid arrDataActs={arrDataActs}/>
+                    <ActsGrid onScroll={onScroll} acts={store.acts}/>
                 </>
 
                 <button className={'exit'} onClick={() => store.logout()}>

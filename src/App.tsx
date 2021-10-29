@@ -1,5 +1,5 @@
 import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
-import {FC, useContext, useEffect} from "react";
+import {FC, useContext, useEffect, useState} from "react";
 import {Context} from "./index";
 import {observer} from "mobx-react-lite"
 
@@ -15,10 +15,16 @@ const App: FC = () => {
 
     const {store} = useContext(Context);
 
+    const [firstLoad,setFirstLoad]=useState(true);
+
     useEffect(() => {
         console.log(localStorage.getItem('token'))
         if (localStorage.getItem('token')) {
             store.checkAuth()
+        }
+        if (firstLoad){
+            store.getAllActs('10');
+            setFirstLoad(false);
         }
     }, [])
 

@@ -1,41 +1,23 @@
-import React, {useContext, useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import dateFormat from "dateformat";
 
 import './ActsGrid_module.css';
-import {Context} from "../../index";
 
-const ActsGrid = ({arrDataActs}) => {
+const ActsGrid = ({acts, onScroll}) => {
 
-    const {store} = useContext(Context);
-
-    const prevScrollY = useRef(0);
-    const [fetching, setFetching] = useState(true)
-    const [skip, setSkip] = useState(0);
+    const [data, setData] = useState(acts)
 
     useEffect(() => {
-        if (fetching) {
-            store.getAllActs(skip);
-            setSkip(prevState => prevState + 10);
-            setFetching(false);
-        }
-
-    }, [fetching])
-
-    const onScroll = (e) => {
-        const currentScrollY = e.target.scrollTop;
-        if (window.outerHeight - (e.target.scrollHeight + currentScrollY) < 100) {
-            if (prevScrollY.current < currentScrollY) {
-                setFetching(true);
-            }
-        }
-        prevScrollY.current = currentScrollY;
-    };
+        setData(acts)
+        console.log(data)
+    }, [acts])
 
     return (
-        <div className={'gridPhotos'} onScroll={onScroll}>
+        <div className={'gridPhotos'} onScroll={onScroll} id={'sidemenuacts'}>
             {
-                store.acts.map((act) => (
+                data.map((act) => (
                     <>
-                        <div className={'gridPhoto'}>
+                        <div className={'gridPhoto'} key={act.id}>
                             <input type="checkbox"
                                    checked={act.checked}
                                    onChange={() => {
@@ -47,12 +29,14 @@ const ActsGrid = ({arrDataActs}) => {
                                     Номер: #{act.id}
                                 </label>
                                 <label>
-                                    Дата: {act.name}
+                                    Имя: {act.name}
                                 </label>
                                 <label>
-                                    Количество снимков: {act.path}
+                                    Количество снимков: 1
                                 </label>
-
+                                <label>
+                                    Дата: {dateFormat(act.created_at, "mmmm dS, yyyy")}
+                                </label>
                             </div>
                             <div className="downloadAct">
                                 <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
